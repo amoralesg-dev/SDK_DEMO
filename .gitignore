@@ -1,0 +1,33 @@
+# Angular
+.angular/
+dist/
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Screenshots
+*.png
+
+# HAR
+*.har
+
+# Playwright
+playwright-report/
+playwright_report.json
+
+# Scratch
+scratch/
+
+# Backups
+src_backup_broken_logout/
+
+# Environment
+.env
+.env.*
