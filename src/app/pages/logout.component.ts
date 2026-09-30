@@ -17,7 +17,7 @@ import { AuthenticationService, NavigationService } from '@rassini/rassini-ui';
           Gracias por utilizar la Plataforma Corporativa Rassini.
         </p>
         
-        <a href="http://localhost:4200/auth/login" 
+        <a href="http://localhost:4200/employee-portal/auth/login" 
            id="btn-portal-login"
            style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 0.85rem 1.5rem; background: #ea580c; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25); transition: background 0.2s;">
           <i class="pi pi-sign-in"></i> Ir al Portal de Empleados

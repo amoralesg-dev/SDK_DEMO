@@ -34,6 +34,7 @@ export const routes: Routes = [
     path: '',
     component: ShellLayoutComponent,
     canActivate: [rassiniAuthGuard],
+    canActivateChild: [rassiniAuthGuard],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {

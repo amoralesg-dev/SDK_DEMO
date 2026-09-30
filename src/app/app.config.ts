@@ -15,7 +15,9 @@ export const SDK_DEMO_OIDC_CONFIG: CorporateOidcConfig = {
   clientId: 'sdk-demo-client',
   issuer: 'http://localhost:8083/employee-portal',
   redirectUri: 'http://localhost:4205/callback',
-  postLogoutRedirectUri: 'http://localhost:4205',
+  // Redirigir al login del portal tras logout OIDC.
+  // El AS añadirá ?oidc_logout=1 para que el portal limpie su localStorage.
+  postLogoutRedirectUri: 'http://localhost:4200/employee-portal/auth/login',
   scope: 'openid profile email roles permissions business_units offline_access',
   allowedApiOrigins: [
     'http://localhost:8083'
