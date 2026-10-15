@@ -1,0 +1,16 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ headless: true });
+const page = await b.newPage();
+page.on('console', m => { const t = m.text(); if (!t.includes('STORAGE') ) console.log('[console]', t.substring(0, 200)); });
+page.on('request', r => r.url().includes('8082') && console.log('[req]', r.method(), r.url()));
+page.on('response', r => r.url().includes('8082') && console.log('[res]', r.status(), r.url()));
+page.on('requestfailed', r => console.log('[reqfail]', r.url(), r.failure()?.errorText));
+await page.goto('http://localhost:4200/contingencia', { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('#contingencia-submit', { timeout: 10000 });
+console.log('form OK, url', page.url());
+await page.fill('input[name=usuario]', 'msantillan');
+await page.fill('input[name=password]', 'Temporal2024');
+await page.click('#contingencia-submit');
+await page.waitForTimeout(5000);
+console.log('FINAL', page.url(), 'err=', await page.locator('#contingencia-error').allTextContents());
+await b.close();

@@ -51,22 +51,15 @@ export class ShellLayoutComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('pageshow', (event: PageTransitionEvent) => {
-        if (!this.authService.isAuthenticated() || !this.authService.hasValidTokenInStorage()) {
-          this.navService.clear();
-          window.location.replace('http://localhost:4200/employee-portal/auth/login');
-        }
-      });
-    }
-
+    console.log(`[SHELL LAYOUT] ngOnInit() montado! isAuthenticated: ${this.authService.isAuthenticated()} | currentUser: ${this.authService.currentUser()?.username || 'null'}`);
     if (this.authService.isAuthenticated()) {
+      console.log('[SHELL LAYOUT] Invocando navService.loadNavigation(SDK_DEMO)...');
       this.navService.loadNavigation('SDK_DEMO').subscribe();
     }
   }
 
   onLogout(): void {
-    console.log('[SHELL LAYOUT] onLogout() triggered by rui-shell');
+    console.log('[SHELL LAYOUT] onLogout() disparado por rui-shell');
     this.navService.clear();
     this.authService.logout(true);
   }

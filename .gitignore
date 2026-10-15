@@ -24,6 +24,13 @@ playwright_report.json
 
 # Scratch
 scratch/
+diagnostic.mjs
+inspect-selectors.mjs
+test-auth-logout.mjs
+test-diag-session.mjs
+test-min-guard.mjs
+test-real-user-e2e.mjs
+trace-logout.mjs
 
 # Backups
 src_backup_broken_logout/
